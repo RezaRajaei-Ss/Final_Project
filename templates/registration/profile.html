@@ -1,0 +1,54 @@
+{% extends 'registration/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}{% block title-meta %}
+	پروفایل کاربری
+{% endblock %}{% endblock %}
+
+{% block main %}
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title mb-0 float-left">پروفایل کاربری</h3>
+      </div>
+
+      <!-- /.card-header -->
+
+	<div class="card-body">
+		<form method="post" enctype="multipart/form-data">{% csrf_token %}
+
+			<div class="row">
+	      		<div class="col-6">
+	        		{{ form.username|as_crispy_field }}
+	      		</div>
+	      		<div class="col-6">
+	        		{{ form.email|as_crispy_field }}
+	      		</div>
+	      		<div class="col-12">
+	      			<label class="my-4">گذرواژه:</label>
+	      			<span>برای تغییر گذرواژه <a href="{% url 'password_change' %}">کلیک کنید</a></span>
+	      		</div>
+	      		<div class="col-6">
+	        		{{ form.first_name|as_crispy_field }}
+	      		</div>
+	      		<div class="col-6">
+	        		{{ form.last_name|as_crispy_field }}
+	        	</div>
+	        		<div class="col-6">
+	        		{{ form.spical_user|as_crispy_field }}
+	      		</div>
+	      		<div class="col-6">
+	        		{{ form.is_author|as_crispy_field }}
+	        	</div>
+
+		<button class="btn btn-success">ارسال مقاله</button>
+				{% if user.is_superuser and request.resolver_match.kwargs.pk %}
+					<a href="{% url 'account:article-delete' request.resolver_match.kwargs.pk %}" class="btn btn-danger"> حذف </a>
+
+				{% endif %}
+		</form>
+	</div>
+</div>
+{% endblock %}

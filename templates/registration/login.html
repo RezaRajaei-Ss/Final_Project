@@ -1,0 +1,78 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <!-- Bootstrap core CSS -->
+        <link rel="icon" href="{% static 'registration/login/images/favicon.png' %}"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">  
+        <!-- Custom styles for this template -->
+        <link href="{% static 'registration/login/css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'registration/login/css/bootstrap.min.css' %}" rel="stylesheet">
+    </head>
+    <body class="content">
+        {% if form.non_field_errors %}
+        <div class="errors" >
+            {% for error in form.non_field_errors %}
+                <span style="color:azure;">{{error}}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <header>
+            <div class="logo text-center">
+                <h2>Login</h2>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6 width-100">
+                    <form method="post">{% csrf_token %}
+                        <div class="loginpage">
+                            {{form.username|add_class:"form-control placeholder-fix"}}
+                            {% if form.username.errors %}
+                            <div class="errors" >
+                                {% for error in form.username.errors %}
+                                    <span style="color:azure;">{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {{form.password|add_class:"form-control placeholder-fix"}}
+                            {% if form.password.errors %}
+                            <div class="errors" >
+                                {% for error in form.password.errors %}
+                                    <span style="color:azure;">{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="action-button">
+                            <button class="btn-block" type="submit">Login</button> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="page-links">
+                    <li><a href="{% url 'password_reset' %}">Forgot Password?</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    
+                </ul>
+                <div class="social-button">
+                    <a href="#"><img src="{% static 'registration/login/images/facebook.png' %}" alt="fb">Facebook</a>
+                    <a href="#"><img src="{% static 'registration/login/images/google.png' %}" alt="google">Google</a>
+                </div>
+                <div class="copyright-box">
+                    <div class="copyright">
+                        <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
+                        &copy; تمامی حقوق محفوظ میباشد <a href="http://www.themevault.net/" target="_blank"><strong>Weblog.</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
