@@ -55,20 +55,21 @@
 			<hr class="my-4" />
 			
 		   <!-- Pager-->
-           {% if is_paginated %}
-                {% if page_obj.has_previous %}
-                
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase mr-3" href="{% block 'previous_page_url' %} {% endblock %}">پست های جدید </a>
-                {% endif %}
-                {% if page_obj.has_next %}
-                
-
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase mr-3" href="{% block 'next_page_url' %} {% endblock %}">پست های قدیمی </a> 
-                    
-                {% endif %}
-                </div>
-           {% endif %}
-        </div>
+		 {% if is_paginated %}
+			 {% if page_obj.has_previous %}
+			<div style="display:flex; text-align: center;">
+			 <div class="d-flex justify-content-end mb-4 ml-3"><a class="btn btn-primary text-uppercase mr-3" href="{% url 'blog:home' %}?page={{page_obj.previous_page_number}}">پست های جدید </a>
+			 {% endif %}
+			 {% if page_obj.has_next %}
+			 
+			 </div>
+			 <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase mr-3" href="{% url 'blog:home' %}?page={{page_obj.next_page_number}}">پست های قدیمی </a> 
+				
+			 {% endif %}
+			 </div>
+			 </div>
+		 {% endif %}
+		</div>
 		</div>
 	</div>
 </div>
