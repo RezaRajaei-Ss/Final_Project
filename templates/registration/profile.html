@@ -43,7 +43,7 @@
 	        		{{ form.is_author|as_crispy_field }}
 	        	</div>
 
-		<button class="btn btn-success">ارسال مقاله</button>
+		<button class="btn btn-success mr-3"> ثبت </button>
 				{% if user.is_superuser and request.resolver_match.kwargs.pk %}
 					<a href="{% url 'account:article-delete' request.resolver_match.kwargs.pk %}" class="btn btn-danger"> حذف </a>
 
