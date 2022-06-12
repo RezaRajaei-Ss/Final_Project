@@ -7119,6 +7119,7 @@ textarea.form-control-lg {
 
 .ms-auto {
   margin-left: auto !important;
+
 }
 
 .p-0 {
@@ -11018,7 +11019,7 @@ blockquote {
 }
 
 .btn {
-  letter-spacing: 0.0625em;
+
 }
 
 .form-floating input,
