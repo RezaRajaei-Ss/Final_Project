@@ -55,147 +55,83 @@ header.masthead .site-heading h1 {
 
 
 
-.nav ul {
-  padding-right: 0;
+/*  */
+#horizontalmenu{
+    margin-right: 20px;
+}
+#horizontalmenu ul {
+  list-style: none;
+    padding: 0;
+    
 }
 
-.nav ul li {
-    border-bottom: none;
-    height: 86px;
-    line-height: 86px;
-    font-size: 14px;
-    display: inline-block;
-    float:left;
-    margin: 0 auto;
-}
-
-.nav ul li a {
-  text-decoration: none;
-  color:#000000;
-  display: block;
-  transition: .3s background-color;
-  padding:0 24px;
-}
-
-.nav ul li a:hover {
-  background-color: #5c89c7;
-  color:#FFFFFF;
-}
-
-.nav a {
-    border-bottom:none;
-}
-
-.nav li ul {
-    position:absolute;
-    display:none;
-    width:inherit;
-}
-
-.nav li:hover ul {
+#horizontalmenu > ul:after{
+    clear:both;
+    content:"";
     display:block;
 }
 
-.nav ul li ul li {
-  display: block;
-  float:none !important; /* newly added */
-  height:auto; /* newly added */
-  line-height:34px; /* newly added */
+#horizontalmenu > ul > li {
+  float: right;
+  position: relative;
+
 }
 
-.nav ul li ul li ul {
+#horizontalmenu > ul > li > a {
+    text-decoration: none;
+    padding: 5px 10px;
+    display:block;
+    color: black;
+    margin-right: 20px;
+
+}
+
+
+
+#horizontalmenu > ul > li > ul {
+
+  display: none;
+  width:150px;
+  top:100%;
+  left:0;
   position: absolute;
-  right: 100%;
-  top: 0;
-  display: none !important;
 }
 
-.nav ul > li > ul > li:hover > ul {
-    display:block !important;
+#horizontalmenu > ul > li > ul > li {
+  position: relative;
+  width:100%;
+  display: block;
 }
 
-.nav ul > li > ul > li > ul > li:hover > ul {
-    display:block !important;
-}
-
-aside {
-    width: 240px;
-    position: absolute;
-    left: -240px;
-    top: 0;
-}
-
-.popular_articles {
-    border: 1px solid #bfbfbf;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: -5px 5px #d5d5d5;
-}
-
-/* Test */
-
-
-
-
-#menu, #menu ul {
-    list-style:none;
-    padding:0;
-    margin:0;
-}
-#menu li {
-    float:left;
-    position:relative;
-    line-height: 4.5em;
-    width: 10em;
+#horizontalmenu > ul > li > ul > li > a {
+  text-decoration: none;
+    padding: 5px 10px;
+    display:block;
 }
 
 
+#horizontalmenu > ul > li:hover > ul {
+  display: block;
+}
 
-#menu li ul {
+#horizontalmenu > ul > li > ul > li > ul {
+    display:none;
     position:absolute;
-    margin-top:-1em;
-    margin-left:.5em;
-    display:none;
-}
-#menu ul li ul {
-    margin-top:-3em;
-    margin-left:7em;
+    left:100%;
+    right: 0%;
+    top:0;
+    width: 150px;
+
 }
 
-
-#menu a {
+#horizontalmenu > ul > li > ul > li > ul > li > a {
+  text-decoration: none;
+    padding: 5px 10px;
     display:block;
-    border-right:1px solid #fff;
-    background:#E0F574;
-    color:#3B3B3B;
-    text-decoration:none;
-    padding:0 10px;
-}
-#menu a:hover {
-    background-color:#5798B4;
-    color:#fff;
-}
-#menu ul {
-    border-top:1px solid #fff;
-}
-#menu ul a {
-    border-right:none;
-    border-right:1px solid #fff;
-    border-bottom:1px solid #fff;
-    border-left:1px solid #fff;
-    background:#AEC245;
+    color: white;
 }
 
 
-/* SHOW SUBMENU 1 */
-#menu li:hover ul, #menu li.over ul {
-    display:block;
-}
-#menu li:hover ul ul, #menu li.over ul ul {
-    display:none;
-}
-/* SHOW SUBMENU 2 */
-#menu ul li:hover ul, #menu ul li.over ul {
-    display:block;
+#horizontalmenu > ul > li > ul > li:hover ul {
+  display: block;
 }
