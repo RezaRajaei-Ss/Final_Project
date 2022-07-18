@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 	'crispy_forms',
 	'django_gravatar',
 	'comment',
+	'extensions',
 
 
 ]

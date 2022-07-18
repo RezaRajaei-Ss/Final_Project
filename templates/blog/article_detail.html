@@ -16,7 +16,8 @@
                 {% if article.is_spical %}
                     <span class="badge" style="color: #f96767; font-size: 20px;">ویژه</span>
                 {% endif %}
-                    <time>{{article.publish}}</time>
+                    <time>{{article.jpublish}}</time>
+                    <p class="post-subtitle"style="margin-top:5px">مدت زمان مطالعه {{article.time_to_read}} دقیقه</p>
                     <span class="subheading"></span>
                 </div>
             </div>

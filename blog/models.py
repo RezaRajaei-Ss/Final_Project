@@ -4,9 +4,9 @@ from django.urls import reverse
 from account.models import User
 from django.utils import timezone
 from django.utils.html import format_html
-
 from django.contrib.contenttypes.fields import GenericRelation
 from comment.models import Comment
+from extensions.utils import jalali_converter
 # Managers
 class ArticleManager(models.Manager):
     def published(self):
@@ -46,6 +46,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان')
     slug = models.SlugField(max_length=100, unique=True, verbose_name='آدرس مقاله')
     category = models.ManyToManyField(Category, verbose_name='دسته بندی', related_name="articles")
+    time_to_read = models.IntegerField(verbose_name="مدت زمان مطالعه به دقیقه")
     description = models.TextField(verbose_name='محتوا')
     thumbnail = models.ImageField(upload_to="images", verbose_name='تصویر مقاله')
     publish = models.DateTimeField(default=timezone.now, verbose_name='زمان انتشار')
@@ -61,6 +62,10 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def jpublish(self):
+        return jalali_converter(self.publish)
+    jpublish.short_description = "زمان انتشار"
 
     def get_absolute_url(self):
         return reverse("account:home")

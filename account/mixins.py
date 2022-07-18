@@ -7,7 +7,7 @@ class FieldsMixin():
 
 	def dispatch(self, request, *args, **kwargs):
 		self.fields = [
-			"title","slug","category","description",
+			"title","slug","category","time_to_read","description",
 			"thumbnail","publish","is_spical","status"]
 
 		if request.user.is_superuser:
