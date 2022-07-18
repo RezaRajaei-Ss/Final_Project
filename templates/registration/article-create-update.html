@@ -18,7 +18,7 @@
 
 	<div class="card-body">
 		<form method="post" enctype="multipart/form-data">{% csrf_token %}
-
+		{{form.media}}
 			<div class="row">
 	      		<div class="col-6">
 	        		{{ form.title|as_crispy_field }}

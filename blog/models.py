@@ -7,6 +7,7 @@ from django.utils.html import format_html
 from django.contrib.contenttypes.fields import GenericRelation
 from comment.models import Comment
 from extensions.utils import jalali_converter
+from ckeditor.fields import RichTextField
 # Managers
 class ArticleManager(models.Manager):
     def published(self):
@@ -47,7 +48,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name='آدرس مقاله')
     category = models.ManyToManyField(Category, verbose_name='دسته بندی', related_name="articles")
     time_to_read = models.IntegerField(verbose_name="مدت زمان مطالعه به دقیقه")
-    description = models.TextField(verbose_name='محتوا')
+    description = RichTextField(blank=True,null=True,verbose_name="محتوا")
     thumbnail = models.ImageField(upload_to="images", verbose_name='تصویر مقاله')
     publish = models.DateTimeField(default=timezone.now, verbose_name='زمان انتشار')
     created = models.DateTimeField(auto_now_add=True)
