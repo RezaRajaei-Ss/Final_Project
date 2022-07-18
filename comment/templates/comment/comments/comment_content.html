@@ -16,13 +16,13 @@
                 {% if comment.user.get_full_name %}
                     {{ comment.user.get_full_name }}
                 {% else %}
-                    {{username}}
+                    {{ username }}
                 {% endif %}
             </{% if comment.user %}a{% else %}span{% endif %}> |
             {% if comment.is_edited %}
-                <span class="font-italic" title="{% trans 'Edited' %}">{% blocktrans with edited_time=comment.edited|timesince %}Edited: {{ edited_time }} قبل{% endblocktrans %}</span>
+                <span class="font-italic" title="{% trans 'Edited' %}">{% blocktrans with edited_time=comment.edited|timesince %}ویرایش شده: {{ edited_time }} قبل {% endblocktrans %}</span>
             {% else %}
-                <span class="font-italic" title="{% trans 'Posted' %}">{% blocktrans with posted_time=comment.posted|timesince %}{{ posted_time }} قبل{% endblocktrans %}</span>
+                <span class="font-italic" title="{% trans 'Posted' %}">{% blocktrans with posted_time=comment.posted|timesince %}{{ posted_time }} قبل {% endblocktrans %}</span>
             {% endif %}
             {% can_delete_comment comment user as can_delete %}
             {% if comment.user == user %}
